@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Payload` trait in crate `message`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Payload">
+
+    <title>message::Payload - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../dark.css">
+    <link rel="stylesheet" type="text/css" href="../light.css" id="themeStyle">
+    <script src="../storage.js"></script>
+    
+
+    
+    
+</head>
+<body class="rustdoc trait">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Trait Payload</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#required-methods">Required Methods</a><div class="sidebar-links"><a href="#tymethod.version">version</a><a href="#tymethod.command">command</a><a href="#tymethod.deserialize_payload">deserialize_payload</a><a href="#tymethod.serialize_payload">serialize_payload</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class='location'><a href='index.html'>message</a></p><script>window.sidebarCurrent = {name: 'Payload', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+    </nav>
+
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../theme.js"></script>
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='index.html'>message</a>::<wbr><a class="trait" href=''>Payload</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/message/message/payload.rs.html#5-10' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait Payload: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + 'static {
+    fn <a href='#tymethod.version' class='fnname'>version</a>() -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>;
+<div class='item-spacer'></div>    fn <a href='#tymethod.command' class='fnname'>command</a>() -&gt; &amp;'static <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>;
+<div class='item-spacer'></div>    fn <a href='#tymethod.deserialize_payload' class='fnname'>deserialize_payload</a>&lt;T&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reader: &amp;mut <a class="struct" href="../serialization/reader/struct.Reader.html" title="struct serialization::reader::Reader">Reader</a>&lt;T&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;version: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a><br>&nbsp;&nbsp;&nbsp;&nbsp;) -&gt; <a class="type" href="../message/type.MessageResult.html" title="type message::MessageResult">MessageResult</a>&lt;Self&gt;<br>&nbsp;&nbsp;&nbsp; <span class="where">where<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Self: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Read.html" title="trait std::io::Read">Read</a></span>;
+<div class='item-spacer'></div>    fn <a href='#tymethod.serialize_payload' class='fnname'>serialize_payload</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stream: &amp;mut <a class="struct" href="../serialization/stream/struct.Stream.html" title="struct serialization::stream::Stream">Stream</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;version: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a><br>&nbsp;&nbsp;&nbsp;&nbsp;) -&gt; <a class="type" href="../message/type.MessageResult.html" title="type message::MessageResult">MessageResult</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;;
+}</pre></div>
+            <h2 id='required-methods' class='small-section-header'>
+              Required Methods<a href='#required-methods' class='anchor'></a>
+            </h2>
+            <div class='methods'>
+        <h3 id='tymethod.version' class='method'><span id='version.v' class='invisible'><code>fn <a href='#tymethod.version' class='fnname'>version</a>() -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a></code></span></h3><h3 id='tymethod.command' class='method'><span id='command.v' class='invisible'><code>fn <a href='#tymethod.command' class='fnname'>command</a>() -&gt; &amp;'static <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a></code></span></h3><h3 id='tymethod.deserialize_payload' class='method'><span id='deserialize_payload.v' class='invisible'><code>fn <a href='#tymethod.deserialize_payload' class='fnname'>deserialize_payload</a>&lt;T&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;reader: &amp;mut <a class="struct" href="../serialization/reader/struct.Reader.html" title="struct serialization::reader::Reader">Reader</a>&lt;T&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;version: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a><br>) -&gt; <a class="type" href="../message/type.MessageResult.html" title="type message::MessageResult">MessageResult</a>&lt;Self&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;Self: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Read.html" title="trait std::io::Read">Read</a>,&nbsp;</span></code></span></h3><h3 id='tymethod.serialize_payload' class='method'><span id='serialize_payload.v' class='invisible'><code>fn <a href='#tymethod.serialize_payload' class='fnname'>serialize_payload</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;stream: &amp;mut <a class="struct" href="../serialization/stream/struct.Stream.html" title="struct serialization::stream::Stream">Stream</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;version: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a><br>) -&gt; <a class="type" href="../message/type.MessageResult.html" title="type message::MessageResult">MessageResult</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;</code></span></h3></div>
+        <h2 id='implementors' class='small-section-header'>
+          Implementors<a href='#implementors' class='anchor'></a>
+        </h2>
+        <ul class='item-list' id='implementors-list'>
+    <li><table class='table-display'><tbody><tr><td><code>impl Payload for <a class="enum" href="../message/types/addr/enum.Addr.html" title="enum message::types::addr::Addr">Addr</a></code><td><div class='out-of-band'><a class='srclink' href='../src/message/types/addr.rs.html#23-56' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+<li><table class='table-display'><tbody><tr><td><code>impl Payload for <a class="struct" href="../message/types/struct.Block.html" title="struct message::types::Block">Block</a></code><td><div class='out-of-band'><a class='srclink' href='../src/message/types/block.rs.html#19-40' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+<li><table class='table-display'><tbody><tr><td><code>impl Payload for <a class="struct" href="../message/types/struct.BlockTxn.html" title="struct message::types::BlockTxn">BlockTxn</a></code><td><div class='out-of-band'><a class='srclink' href='../src/message/types/blocktxn.rs.html#11-32' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+<li><table class='table-display'><tbody><tr><td><code>impl Payload for <a class="struct" href="../message/types/struct.CompactBlock.html" title="struct message::types::CompactBlock">CompactBlock</a></code><td><div class='out-of-band'><a class='srclink' href='../src/message/types/compactblock.rs.html#11-32' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+<li><table class='table-display'><tbody><tr><td><code>impl Payload for <a class="struct" href="../message/types/struct.FeeFilter.html" title="struct message::types::FeeFilter">FeeFilter</a></code><td><div class='out-of-band'><a class='srclink' href='../src/message/types/feefilter.rs.html#18-39' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+<li><table class='table-display'><tbody><tr><td><code>impl Payload for <a class="struct" href="../message/types/struct.FilterAdd.html" title="struct message::types::FilterAdd">FilterAdd</a></code><td><div class='out-of-band'><a class='srclink' href='../src/message/types/filteradd.rs.html#14-35' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+<li><table class='table-display'><tbody><tr><td><code>impl Payload for <a class="struct" href="../message/types/struct.FilterClear.html" title="struct message::types::FilterClear">FilterClear</a></code><td><div class='out-of-band'><a class='srclink' href='../src/message/types/filterclear.rs.html#8-24' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+<li><table class='table-display'><tbody><tr><td><code>impl Payload for <a class="struct" href="../message/types/struct.FilterLoad.html" title="struct message::types::FilterLoad">FilterLoad</a></code><td><div class='out-of-band'><a class='srclink' href='../src/message/types/filterload.rs.html#31-59' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+<li><table class='table-display'><tbody><tr><td><code>impl Payload for <a class="struct" href="../message/types/struct.GetAddr.html" title="struct message::types::GetAddr">GetAddr</a></code><td><div class='out-of-band'><a class='srclink' href='../src/message/types/getaddr.rs.html#8-24' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+<li><table class='table-display'><tbody><tr><td><code>impl Payload for <a class="struct" href="../message/types/struct.GetBlocks.html" title="struct message::types::GetBlocks">GetBlocks</a></code><td><div class='out-of-band'><a class='srclink' href='../src/message/types/getblocks.rs.html#15-41' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+<li><table class='table-display'><tbody><tr><td><code>impl Payload for <a class="struct" href="../message/types/struct.GetBlockTxn.html" title="struct message::types::GetBlockTxn">GetBlockTxn</a></code><td><div class='out-of-band'><a class='srclink' href='../src/message/types/getblocktxn.rs.html#11-32' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+<li><table class='table-display'><tbody><tr><td><code>impl Payload for <a class="struct" href="../message/types/struct.GetData.html" title="struct message::types::GetData">GetData</a></code><td><div class='out-of-band'><a class='srclink' href='../src/message/types/getdata.rs.html#21-42' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+<li><table class='table-display'><tbody><tr><td><code>impl Payload for <a class="struct" href="../message/types/struct.GetHeaders.html" title="struct message::types::GetHeaders">GetHeaders</a></code><td><div class='out-of-band'><a class='srclink' href='../src/message/types/getheaders.rs.html#25-51' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+<li><table class='table-display'><tbody><tr><td><code>impl Payload for <a class="struct" href="../message/types/struct.Headers.html" title="struct message::types::Headers">Headers</a></code><td><div class='out-of-band'><a class='srclink' href='../src/message/types/headers.rs.html#45-68' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+<li><table class='table-display'><tbody><tr><td><code>impl Payload for <a class="struct" href="../message/types/struct.Inv.html" title="struct message::types::Inv">Inv</a></code><td><div class='out-of-band'><a class='srclink' href='../src/message/types/inv.rs.html#21-42' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+<li><table class='table-display'><tbody><tr><td><code>impl Payload for <a class="struct" href="../message/types/struct.MemPool.html" title="struct message::types::MemPool">MemPool</a></code><td><div class='out-of-band'><a class='srclink' href='../src/message/types/mempool.rs.html#8-24' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+<li><table class='table-display'><tbody><tr><td><code>impl Payload for <a class="struct" href="../message/types/struct.MerkleBlock.html" title="struct message::types::MerkleBlock">MerkleBlock</a></code><td><div class='out-of-band'><a class='srclink' href='../src/message/types/merkle_block.rs.html#16-44' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+<li><table class='table-display'><tbody><tr><td><code>impl Payload for <a class="struct" href="../message/types/struct.NotFound.html" title="struct message::types::NotFound">NotFound</a></code><td><div class='out-of-band'><a class='srclink' href='../src/message/types/notfound.rs.html#19-40' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+<li><table class='table-display'><tbody><tr><td><code>impl Payload for <a class="struct" href="../message/types/struct.Ping.html" title="struct message::types::Ping">Ping</a></code><td><div class='out-of-band'><a class='srclink' href='../src/message/types/ping.rs.html#18-39' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+<li><table class='table-display'><tbody><tr><td><code>impl Payload for <a class="struct" href="../message/types/struct.Pong.html" title="struct message::types::Pong">Pong</a></code><td><div class='out-of-band'><a class='srclink' href='../src/message/types/pong.rs.html#18-39' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+<li><table class='table-display'><tbody><tr><td><code>impl Payload for <a class="struct" href="../message/types/reject/struct.Reject.html" title="struct message::types::reject::Reject">Reject</a></code><td><div class='out-of-band'><a class='srclink' href='../src/message/types/reject.rs.html#63-89' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+<li><table class='table-display'><tbody><tr><td><code>impl Payload for <a class="struct" href="../message/types/struct.SendCompact.html" title="struct message::types::SendCompact">SendCompact</a></code><td><div class='out-of-band'><a class='srclink' href='../src/message/types/sendcompact.rs.html#11-35' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+<li><table class='table-display'><tbody><tr><td><code>impl Payload for <a class="struct" href="../message/types/struct.SendHeaders.html" title="struct message::types::SendHeaders">SendHeaders</a></code><td><div class='out-of-band'><a class='srclink' href='../src/message/types/sendheaders.rs.html#8-24' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+<li><table class='table-display'><tbody><tr><td><code>impl Payload for <a class="struct" href="../message/types/struct.Tx.html" title="struct message::types::Tx">Tx</a></code><td><div class='out-of-band'><a class='srclink' href='../src/message/types/tx.rs.html#19-40' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+<li><table class='table-display'><tbody><tr><td><code>impl Payload for <a class="struct" href="../message/types/struct.Verack.html" title="struct message::types::Verack">Verack</a></code><td><div class='out-of-band'><a class='srclink' href='../src/message/types/verack.rs.html#8-24' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+<li><table class='table-display'><tbody><tr><td><code>impl Payload for <a class="enum" href="../message/types/version/enum.Version.html" title="enum message::types::version::Version">Version</a></code><td><div class='out-of-band'><a class='srclink' href='../src/message/types/version.rs.html#24-69' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+</ul><script type="text/javascript">window.inlined_types=new Set([]);</script><script type="text/javascript" async
+                         src="../implementors/message/trait.Payload.js">
+                 </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt><kbd>?</kbd></dt>
+                    <dd>Show this help dialog</dd>
+                    <dt><kbd>S</kbd></dt>
+                    <dd>Focus the search field</dd>
+                    <dt><kbd>↑</kbd></dt>
+                    <dd>Move up in search results</dd>
+                    <dt><kbd>↓</kbd></dt>
+                    <dd>Move down in search results</dd>
+                    <dt><kbd>↹</kbd></dt>
+                    <dd>Switch tab</dd>
+                    <dt><kbd>&#9166;</kbd></dt>
+                    <dd>Go to active search result</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "message";
+    </script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

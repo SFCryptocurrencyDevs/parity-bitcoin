@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Error` enum in crate `script`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Error">
+
+    <title>script::Error - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../dark.css">
+    <link rel="stylesheet" type="text/css" href="../light.css" id="themeStyle">
+    <script src="../storage.js"></script>
+    
+
+    
+    
+</head>
+<body class="rustdoc enum">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Enum Error</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#variants">Variants</a><div class="sidebar-links"><a href="#variant.Unknown">Unknown</a><a href="#variant.EvalFalse">EvalFalse</a><a href="#variant.ReturnOpcode">ReturnOpcode</a><a href="#variant.ScriptSize">ScriptSize</a><a href="#variant.PushSize">PushSize</a><a href="#variant.OpCount">OpCount</a><a href="#variant.StackSize">StackSize</a><a href="#variant.NumberOverflow">NumberOverflow</a><a href="#variant.NumberNotMinimallyEncoded">NumberNotMinimallyEncoded</a><a href="#variant.SigCount">SigCount</a><a href="#variant.PubkeyCount">PubkeyCount</a><a href="#variant.Verify">Verify</a><a href="#variant.EqualVerify">EqualVerify</a><a href="#variant.CheckSigVerify">CheckSigVerify</a><a href="#variant.NumEqualVerify">NumEqualVerify</a><a href="#variant.BadOpcode">BadOpcode</a><a href="#variant.DisabledOpcode">DisabledOpcode</a><a href="#variant.InvalidStackOperation">InvalidStackOperation</a><a href="#variant.InvalidAltstackOperation">InvalidAltstackOperation</a><a href="#variant.UnbalancedConditional">UnbalancedConditional</a><a href="#variant.InvalidSplitRange">InvalidSplitRange</a><a href="#variant.InvalidBitwiseOperation">InvalidBitwiseOperation</a><a href="#variant.DivisionByZero">DivisionByZero</a><a href="#variant.ImpossibleEncoding">ImpossibleEncoding</a><a href="#variant.NegativeLocktime">NegativeLocktime</a><a href="#variant.UnsatisfiedLocktime">UnsatisfiedLocktime</a><a href="#variant.SignatureHashtype">SignatureHashtype</a><a href="#variant.SignatureDer">SignatureDer</a><a href="#variant.SignatureIllegalForkId">SignatureIllegalForkId</a><a href="#variant.SignatureMustUseForkId">SignatureMustUseForkId</a><a href="#variant.Minimaldata">Minimaldata</a><a href="#variant.SignaturePushOnly">SignaturePushOnly</a><a href="#variant.SignatureHighS">SignatureHighS</a><a href="#variant.SignatureNullDummy">SignatureNullDummy</a><a href="#variant.PubkeyType">PubkeyType</a><a href="#variant.Cleanstack">Cleanstack</a><a href="#variant.DiscourageUpgradableNops">DiscourageUpgradableNops</a><a href="#variant.DiscourageUpgradableWitnessProgram">DiscourageUpgradableWitnessProgram</a><a href="#variant.WitnessProgramWrongLength">WitnessProgramWrongLength</a><a href="#variant.WitnessProgramWitnessEmpty">WitnessProgramWitnessEmpty</a><a href="#variant.WitnessProgramMismatch">WitnessProgramMismatch</a><a href="#variant.WitnessMalleated">WitnessMalleated</a><a href="#variant.WitnessMalleatedP2SH">WitnessMalleatedP2SH</a><a href="#variant.WitnessUnexpected">WitnessUnexpected</a><a href="#variant.WitnessPubKeyType">WitnessPubKeyType</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-PartialEq">PartialEq</a><a href="#impl-Display">Display</a></div><a class="sidebar-title" href="#synthetic-implementations">Auto Trait Implementations</a><div class="sidebar-links"><a href="#impl-Send">Send</a><a href="#impl-Sync">Sync</a></div></div><p class='location'><a href='index.html'>script</a></p><script>window.sidebarCurrent = {name: 'Error', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+    </nav>
+
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../theme.js"></script>
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Enum <a href='index.html'>script</a>::<wbr><a class="enum" href=''>Error</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/script/error.rs.html#8-68' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust enum'>pub enum Error {
+    Unknown,
+    EvalFalse,
+    ReturnOpcode,
+    ScriptSize,
+    PushSize,
+    OpCount,
+    StackSize,
+    NumberOverflow,
+    NumberNotMinimallyEncoded,
+    SigCount,
+    PubkeyCount,
+    Verify,
+    EqualVerify,
+    CheckSigVerify,
+    NumEqualVerify,
+    BadOpcode,
+    DisabledOpcode(<a class="enum" href="../script/enum.Opcode.html" title="enum script::Opcode">Opcode</a>),
+    InvalidStackOperation,
+    InvalidAltstackOperation,
+    UnbalancedConditional,
+    InvalidSplitRange,
+    InvalidBitwiseOperation,
+    DivisionByZero,
+    ImpossibleEncoding,
+    NegativeLocktime,
+    UnsatisfiedLocktime,
+    SignatureHashtype,
+    SignatureDer,
+    SignatureIllegalForkId,
+    SignatureMustUseForkId,
+    Minimaldata,
+    SignaturePushOnly,
+    SignatureHighS,
+    SignatureNullDummy,
+    PubkeyType,
+    Cleanstack,
+    DiscourageUpgradableNops,
+    DiscourageUpgradableWitnessProgram,
+    WitnessProgramWrongLength,
+    WitnessProgramWitnessEmpty,
+    WitnessProgramMismatch,
+    WitnessMalleated,
+    WitnessMalleatedP2SH,
+    WitnessUnexpected,
+    WitnessPubKeyType,
+}</pre></div><div class='docblock'><p>Interpreter errors</p>
+</div><h2 id='variants' class='variants small-section-header'>
+                   Variants<a href='#variants' class='anchor'></a></h2>
+<span id="variant.Unknown" class="variant small-section-header"><a href="#variant.Unknown" class="anchor field"></a><span id='Unknown.v' class='invisible'><code>Unknown</code></span></span><span id="variant.EvalFalse" class="variant small-section-header"><a href="#variant.EvalFalse" class="anchor field"></a><span id='EvalFalse.v' class='invisible'><code>EvalFalse</code></span></span><span id="variant.ReturnOpcode" class="variant small-section-header"><a href="#variant.ReturnOpcode" class="anchor field"></a><span id='ReturnOpcode.v' class='invisible'><code>ReturnOpcode</code></span></span><span id="variant.ScriptSize" class="variant small-section-header"><a href="#variant.ScriptSize" class="anchor field"></a><span id='ScriptSize.v' class='invisible'><code>ScriptSize</code></span></span><span id="variant.PushSize" class="variant small-section-header"><a href="#variant.PushSize" class="anchor field"></a><span id='PushSize.v' class='invisible'><code>PushSize</code></span></span><span id="variant.OpCount" class="variant small-section-header"><a href="#variant.OpCount" class="anchor field"></a><span id='OpCount.v' class='invisible'><code>OpCount</code></span></span><span id="variant.StackSize" class="variant small-section-header"><a href="#variant.StackSize" class="anchor field"></a><span id='StackSize.v' class='invisible'><code>StackSize</code></span></span><span id="variant.NumberOverflow" class="variant small-section-header"><a href="#variant.NumberOverflow" class="anchor field"></a><span id='NumberOverflow.v' class='invisible'><code>NumberOverflow</code></span></span><span id="variant.NumberNotMinimallyEncoded" class="variant small-section-header"><a href="#variant.NumberNotMinimallyEncoded" class="anchor field"></a><span id='NumberNotMinimallyEncoded.v' class='invisible'><code>NumberNotMinimallyEncoded</code></span></span><span id="variant.SigCount" class="variant small-section-header"><a href="#variant.SigCount" class="anchor field"></a><span id='SigCount.v' class='invisible'><code>SigCount</code></span></span><span id="variant.PubkeyCount" class="variant small-section-header"><a href="#variant.PubkeyCount" class="anchor field"></a><span id='PubkeyCount.v' class='invisible'><code>PubkeyCount</code></span></span><span id="variant.Verify" class="variant small-section-header"><a href="#variant.Verify" class="anchor field"></a><span id='Verify.v' class='invisible'><code>Verify</code></span></span><span id="variant.EqualVerify" class="variant small-section-header"><a href="#variant.EqualVerify" class="anchor field"></a><span id='EqualVerify.v' class='invisible'><code>EqualVerify</code></span></span><span id="variant.CheckSigVerify" class="variant small-section-header"><a href="#variant.CheckSigVerify" class="anchor field"></a><span id='CheckSigVerify.v' class='invisible'><code>CheckSigVerify</code></span></span><span id="variant.NumEqualVerify" class="variant small-section-header"><a href="#variant.NumEqualVerify" class="anchor field"></a><span id='NumEqualVerify.v' class='invisible'><code>NumEqualVerify</code></span></span><span id="variant.BadOpcode" class="variant small-section-header"><a href="#variant.BadOpcode" class="anchor field"></a><span id='BadOpcode.v' class='invisible'><code>BadOpcode</code></span></span><span id="variant.DisabledOpcode" class="variant small-section-header"><a href="#variant.DisabledOpcode" class="anchor field"></a><span id='DisabledOpcode.v' class='invisible'><code>DisabledOpcode(<a class="enum" href="../script/enum.Opcode.html" title="enum script::Opcode">Opcode</a>)</code></span></span><span id="variant.InvalidStackOperation" class="variant small-section-header"><a href="#variant.InvalidStackOperation" class="anchor field"></a><span id='InvalidStackOperation.v' class='invisible'><code>InvalidStackOperation</code></span></span><span id="variant.InvalidAltstackOperation" class="variant small-section-header"><a href="#variant.InvalidAltstackOperation" class="anchor field"></a><span id='InvalidAltstackOperation.v' class='invisible'><code>InvalidAltstackOperation</code></span></span><span id="variant.UnbalancedConditional" class="variant small-section-header"><a href="#variant.UnbalancedConditional" class="anchor field"></a><span id='UnbalancedConditional.v' class='invisible'><code>UnbalancedConditional</code></span></span><span id="variant.InvalidSplitRange" class="variant small-section-header"><a href="#variant.InvalidSplitRange" class="anchor field"></a><span id='InvalidSplitRange.v' class='invisible'><code>InvalidSplitRange</code></span></span><span id="variant.InvalidBitwiseOperation" class="variant small-section-header"><a href="#variant.InvalidBitwiseOperation" class="anchor field"></a><span id='InvalidBitwiseOperation.v' class='invisible'><code>InvalidBitwiseOperation</code></span></span><span id="variant.DivisionByZero" class="variant small-section-header"><a href="#variant.DivisionByZero" class="anchor field"></a><span id='DivisionByZero.v' class='invisible'><code>DivisionByZero</code></span></span><span id="variant.ImpossibleEncoding" class="variant small-section-header"><a href="#variant.ImpossibleEncoding" class="anchor field"></a><span id='ImpossibleEncoding.v' class='invisible'><code>ImpossibleEncoding</code></span></span><span id="variant.NegativeLocktime" class="variant small-section-header"><a href="#variant.NegativeLocktime" class="anchor field"></a><span id='NegativeLocktime.v' class='invisible'><code>NegativeLocktime</code></span></span><span id="variant.UnsatisfiedLocktime" class="variant small-section-header"><a href="#variant.UnsatisfiedLocktime" class="anchor field"></a><span id='UnsatisfiedLocktime.v' class='invisible'><code>UnsatisfiedLocktime</code></span></span><span id="variant.SignatureHashtype" class="variant small-section-header"><a href="#variant.SignatureHashtype" class="anchor field"></a><span id='SignatureHashtype.v' class='invisible'><code>SignatureHashtype</code></span></span><span id="variant.SignatureDer" class="variant small-section-header"><a href="#variant.SignatureDer" class="anchor field"></a><span id='SignatureDer.v' class='invisible'><code>SignatureDer</code></span></span><span id="variant.SignatureIllegalForkId" class="variant small-section-header"><a href="#variant.SignatureIllegalForkId" class="anchor field"></a><span id='SignatureIllegalForkId.v' class='invisible'><code>SignatureIllegalForkId</code></span></span><span id="variant.SignatureMustUseForkId" class="variant small-section-header"><a href="#variant.SignatureMustUseForkId" class="anchor field"></a><span id='SignatureMustUseForkId.v' class='invisible'><code>SignatureMustUseForkId</code></span></span><span id="variant.Minimaldata" class="variant small-section-header"><a href="#variant.Minimaldata" class="anchor field"></a><span id='Minimaldata.v' class='invisible'><code>Minimaldata</code></span></span><span id="variant.SignaturePushOnly" class="variant small-section-header"><a href="#variant.SignaturePushOnly" class="anchor field"></a><span id='SignaturePushOnly.v' class='invisible'><code>SignaturePushOnly</code></span></span><span id="variant.SignatureHighS" class="variant small-section-header"><a href="#variant.SignatureHighS" class="anchor field"></a><span id='SignatureHighS.v' class='invisible'><code>SignatureHighS</code></span></span><span id="variant.SignatureNullDummy" class="variant small-section-header"><a href="#variant.SignatureNullDummy" class="anchor field"></a><span id='SignatureNullDummy.v' class='invisible'><code>SignatureNullDummy</code></span></span><span id="variant.PubkeyType" class="variant small-section-header"><a href="#variant.PubkeyType" class="anchor field"></a><span id='PubkeyType.v' class='invisible'><code>PubkeyType</code></span></span><span id="variant.Cleanstack" class="variant small-section-header"><a href="#variant.Cleanstack" class="anchor field"></a><span id='Cleanstack.v' class='invisible'><code>Cleanstack</code></span></span><span id="variant.DiscourageUpgradableNops" class="variant small-section-header"><a href="#variant.DiscourageUpgradableNops" class="anchor field"></a><span id='DiscourageUpgradableNops.v' class='invisible'><code>DiscourageUpgradableNops</code></span></span><span id="variant.DiscourageUpgradableWitnessProgram" class="variant small-section-header"><a href="#variant.DiscourageUpgradableWitnessProgram" class="anchor field"></a><span id='DiscourageUpgradableWitnessProgram.v' class='invisible'><code>DiscourageUpgradableWitnessProgram</code></span></span><span id="variant.WitnessProgramWrongLength" class="variant small-section-header"><a href="#variant.WitnessProgramWrongLength" class="anchor field"></a><span id='WitnessProgramWrongLength.v' class='invisible'><code>WitnessProgramWrongLength</code></span></span><span id="variant.WitnessProgramWitnessEmpty" class="variant small-section-header"><a href="#variant.WitnessProgramWitnessEmpty" class="anchor field"></a><span id='WitnessProgramWitnessEmpty.v' class='invisible'><code>WitnessProgramWitnessEmpty</code></span></span><span id="variant.WitnessProgramMismatch" class="variant small-section-header"><a href="#variant.WitnessProgramMismatch" class="anchor field"></a><span id='WitnessProgramMismatch.v' class='invisible'><code>WitnessProgramMismatch</code></span></span><span id="variant.WitnessMalleated" class="variant small-section-header"><a href="#variant.WitnessMalleated" class="anchor field"></a><span id='WitnessMalleated.v' class='invisible'><code>WitnessMalleated</code></span></span><span id="variant.WitnessMalleatedP2SH" class="variant small-section-header"><a href="#variant.WitnessMalleatedP2SH" class="anchor field"></a><span id='WitnessMalleatedP2SH.v' class='invisible'><code>WitnessMalleatedP2SH</code></span></span><span id="variant.WitnessUnexpected" class="variant small-section-header"><a href="#variant.WitnessUnexpected" class="anchor field"></a><span id='WitnessUnexpected.v' class='invisible'><code>WitnessUnexpected</code></span></span><span id="variant.WitnessPubKeyType" class="variant small-section-header"><a href="#variant.WitnessPubKeyType" class="anchor field"></a><span id='WitnessPubKeyType.v' class='invisible'><code>WitnessPubKeyType</code></span></span>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+            <div id='implementations-list'>
+        <h3 id='impl-Debug' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="enum" href="../script/enum.Error.html" title="enum script::Error">Error</a></code><a href='#impl-Debug' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/script/error.rs.html#7' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><table class='table-display'><tbody><tr><td><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/script/error.rs.html#7' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt">Read more</a></p>
+</div></div><h3 id='impl-PartialEq' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html" title="trait core::cmp::PartialEq">PartialEq</a> for <a class="enum" href="../script/enum.Error.html" title="enum script::Error">Error</a></code><a href='#impl-PartialEq' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/script/error.rs.html#7' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='impl-items'><h4 id='method.eq' class="method"><span id='eq.v' class='invisible'><table class='table-display'><tbody><tr><td><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class="enum" href="../script/enum.Error.html" title="enum script::Error">Error</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/script/error.rs.html#7' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>This method tests for <code>self</code> and <code>other</code> values to be equal, and is used by <code>==</code>. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq">Read more</a></p>
+</div><h4 id='method.ne' class="method"><span id='ne.v' class='invisible'><table class='table-display'><tbody><tr><td><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class="enum" href="../script/enum.Error.html" title="enum script::Error">Error</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/script/error.rs.html#7' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>This method tests for <code>!=</code>.</p>
+</div></div><h3 id='impl-Display' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html" title="trait core::fmt::Display">Display</a> for <a class="enum" href="../script/enum.Error.html" title="enum script::Error">Error</a></code><a href='#impl-Display' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/script/error.rs.html#70-134' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='impl-items'><h4 id='method.fmt-1' class="method"><span id='fmt.v-1' class='invisible'><table class='table-display'><tbody><tr><td><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/script/error.rs.html#71-133' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#tymethod.fmt">Read more</a></p>
+</div></div></div>
+                <h2 id='synthetic-implementations' class='small-section-header'>
+                  Auto Trait Implementations<a href='#synthetic-implementations' class='anchor'></a>
+                </h2>
+                <div id='synthetic-implementations-list'>
+            <h3 id='impl-Send' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> for <a class="enum" href="../script/enum.Error.html" title="enum script::Error">Error</a></code><a href='#impl-Send' class='anchor'></a></span></td><td><span class='out-of-band'></span></td></tr></tbody></table></h3><div class='impl-items'></div><h3 id='impl-Sync' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a> for <a class="enum" href="../script/enum.Error.html" title="enum script::Error">Error</a></code><a href='#impl-Sync' class='anchor'></a></span></td><td><span class='out-of-band'></span></td></tr></tbody></table></h3><div class='impl-items'></div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt><kbd>?</kbd></dt>
+                    <dd>Show this help dialog</dd>
+                    <dt><kbd>S</kbd></dt>
+                    <dd>Focus the search field</dd>
+                    <dt><kbd>↑</kbd></dt>
+                    <dd>Move up in search results</dd>
+                    <dt><kbd>↓</kbd></dt>
+                    <dd>Move down in search results</dd>
+                    <dt><kbd>↹</kbd></dt>
+                    <dd>Switch tab</dd>
+                    <dt><kbd>&#9166;</kbd></dt>
+                    <dd>Go to active search result</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "script";
+    </script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>
