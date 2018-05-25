@@ -2,18 +2,33 @@
 
 In this crate, you will find the structures and functions that make up the blockchain, Bitcoin's core data structure.
 
+## Conceptual Overview
 Here we will dive deep into how the blockchain is created, organized, etc. as a preface for understanding the code in this crate.
 
+Here we will cover the following concepts:
+* blockchain
+* block
+* block header
+* merkle tree
+* transaction
+* witnesses and SegWit
+* indexed vs. non-indexed
+
+### Blockchain
 So what is a blockchain? A blockchain is a *chain* of *blocks*...
 
 ![mind blown gif](https://media.giphy.com/media/OK27wINdQS5YQ/giphy.gif)
 
+### Block
 Yep actually. The real question is, what is a [block](https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch09.asciidoc#structure-of-a-block)?
 
 A block is a data structure with two fields:
 * **Block header:** a data structure containing the block's metadata
 * **Transactions:** an array ([vector](https://doc.rust-lang.org/book/second-edition/ch08-01-vectors.html) in rust) of transactions
 
+![Blockchain diagram](https://raw.githubusercontent.com/pluralsight/guides/master/images/8cd8b94f-d05f-41e8-a0f1-70853f390094.png)
+
+### Block Header
 So what is a [block header](https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch09.asciidoc#block-header)?
 
 A block header is a data structure with the following fields:
@@ -24,14 +39,65 @@ A block header is a data structure with the following fields:
 * **Bits:** aka the difficulty target for this block
 * **Nonce:** value used in proof-of-work
 
+![Block header diagram](https://i.stack.imgur.com/BiaJK.png)
+
 *How are blocks chained together?* They are chained together via the backwards reference (Previous Header Hash) present in the block header. Each block points backwards to its parent, all the way back to the [genesis block](https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch09.asciidoc#the-genesis-block) (the first block in the Bitcoin blockchain that is hard coded into all clients).
 
+### Merkle Root
 *What is a Merkle Root?* A merkle root is the root of a merkle tree. As best stated in *Mastering Bitcoin*:
 
 > A _merkle tree_, also known as a _binary hash tree_, is a data
 > structure used for efficiently summarizing and verifying the integrity of large sets of data.
 
 In a merkle tree, all the data, in this case transactions, are leaves in the tree. Each of these is hashed and concatenated with its sibling... all the way up the tree until you are left with a single *root* hash (the merkle root hash). 
+
+![Merkle tree](https://upload.wikimedia.org/wikipedia/commons/9/95/Hash_Tree.svg)
+
+
+
+### Transaction
+According to [Mastering Bitcoin](https://github.com/bitcoinbook/bitcoinbook/) :
+
+> Transactions are the most important part of the bitcoin system. Everything else in bitcoin is designed to ensure that transactions can  created, propagated on the network, validated, and finally added to the global ledger of transactions (the blockchain).
+
+At its most basic level, a transaction is an encoded data structure that facilitates the transfer of value between two public key addresses on the Bitcoin blockchain.
+
+The most fundamental building block of a transaction is a `transaction output` -- the bitcoin you own in your "wallet" is in fact a subset of `unspent transaction outputs` or `UTXO's` of the global `UTXO set`. `UTXOs` are indivisible, discrete units of value which can only be consumed in their entirety. Thus, if I want to send you 1 BTC and I only own one `UTXO` worth 2 BTC, I would construct a transaction that spends my `UTXO` and sends 1 BTC to you and 1 BTC back to me (just like receiving change).
+
+**Transaction Output:** transaction outputs have two fields:
+* *value*: the value of a transaction
+* *scriptPubKey (aka locking script or witness script)*: conditions required to unlock (spend) a transaction value
+
+**Transaction Input:** transaction inputs have four fields:
+* *previous output*: the previous output transaction reference, as an OutPoint structure (see below)
+* *scriptSig*: a script satisfying the conditions set on the UTXO
+* *scriptWitness*:
+* *sequence number*: transaction version as defined by the sender. Intended for "replacement" of transactions when information is updated before inclusion into a block.
+
+**Outpoint**: 
+* *hash*: references the transaction that contains the UTXO being spent
+* *index*: identifies which UTXO from that transaction is referenced
+
+**Transaction Version:** the version of the data formatting
+
+**Transaction Locktime:** this specifies either a block number or a unix time at which this transaction is valid
+
+**Transaction Fee:** A transaction's input value must equal the transaction's output value or else the transaction is invalid. The difference between these two values is the transaction fee, a fee paid to the miner who includes this transaction in his/her block.
+
+### Witnesses and SegWit
+
+Regular transaction id:
+`  [nVersion][txins][txouts][nLockTime]`
+Witness transaction id:
+ `[nVersion][marker][flag][txins][txouts][witness][nLockTime]`
+
+A `witness root hash` is calculated with all those `wtxid` as leaves, in a way similar to the `hashMerkleRoot` in the block header.
+
+
+### Indexed vs. Non-indexed
+
+
+Need a more interactive playground? Check out [this awesome website](https://anders.com/blockchain/).
 
 ## Dependencies
 #### 1. [rustc-serialize](https://crates.io/crates/rustc-serialize): Serialization and deserialization support provided by the compiler.
