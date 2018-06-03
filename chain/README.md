@@ -134,11 +134,13 @@ Whenever a miner mines a block, it includes a special transaction called a coinb
 **Need a more interactive playground? Check out [this awesome website](https://anders.com/blockchain/).**
 
 ## Dependencies
-#### 1. [rustc-serialize](https://crates.io/crates/rustc-serialize): Serialization and deserialization support provided by the compiler.
+#### 1. [rustc-serialize](https://crates.io/crates/rustc-serialize): 
+*Serialization and deserialization support provided by the compiler.*
 
 **One thing to note**: *This crate is deprecated in favor of [`serde`](https://serde.rs/). No new feature development will happen in this crate, although bug fixes proposed through PRs will still be merged. It is very highly recommended by the Rust Library Team that you use [`serde`](https://serde.rs/), not this crate.*
 
-#### 2. [heapsize](https://crates.io/crates/heapsize): infrastructure for measuring the total runtime size of an object on the heap
+#### 2. [heapsize](https://crates.io/crates/heapsize): 
+*infrastructure for measuring the total runtime size of an object on the heap*
 
 #### 3. Crates from within this project:
 	* bitcrypto (crypto)
