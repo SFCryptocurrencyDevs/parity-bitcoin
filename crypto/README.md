@@ -2,11 +2,13 @@
 Building off of the primitives crate, this crate provides a toolkit of cryptographic hash functions.
 
 ## Dependencies
-#### 1. [rust-crypto](https://crates.io/crates/rust-crypto): A (mostly) pure-Rust implementation of various common cryptographic algorithms. 
+#### 1. [rust-crypto](https://crates.io/crates/rust-crypto): 
+*A (mostly) pure-Rust implementation of various common cryptographic algorithms.*
 
 **One thing to note:** *Rust-Crypto has not been thoroughly audited for correctness, so any use where security is important is not recommended at this time.*
 
-#### 2. [siphasher](https://crates.io/crates/siphasher): SipHash is a general-purpose hashing function: it runs at a good speed (competitive with Spooky and City) and permits strong _keyed_ hashing.
+#### 2. [siphasher](https://crates.io/crates/siphasher): 
+*SipHash is a general-purpose hashing function: it runs at a good speed (competitive with Spooky and City) and permits strong _keyed_ hashing.*
 
 **One thing to note:** *Although the SipHash algorithm is considered to be generally strong, it is not intended for cryptographic purposes. As such, all cryptographic uses of this implementation are _strongly discouraged_.*
 
@@ -14,7 +16,8 @@ Reference:
 * [Research Paper](https://web.kamihq.com/web/viewer.html?state=%7B%22ids%22%3A%5B%221xWTF87NjRf-eEmmjBTG-2DQt8aeAQllR%22%5D%2C%22action%22%3A%22open%22%2C%22userId%22%3A%22109785094086647974039%22%7D&filename=siphash.pdf)
 * [Slides](https://web.kamihq.com/web/viewer.html?state=%7B%22ids%22%3A%5B%221rKfLlA30LoQEOHn3psVha2qkGFGVnllo%22%5D%2C%22action%22%3A%22open%22%2C%22userId%22%3A%22109785094086647974039%22%7D&filename=slides.pdf)
 
-#### 3. [primitives](https://github.com/robertDurst/parity-bitcoin/tree/master/primitives): ref another crate within this project
+#### 3. Crates from within this project:
+	* primitives
 
 ## Structure
 Lib.rs: This embodies the entirety of the crypto crate.

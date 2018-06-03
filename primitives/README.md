@@ -42,11 +42,14 @@ You can read more about vectors in rust [here](https://doc.rust-lang.org/book/se
 
 
 ## Dependencies
-#### 1. [heapsize](https://crates.io/crates/heapsize): infrastructure for measuring the total runtime size of an object on the heap
-#### 2. [rustc-serialize](https://crates.io/crates/rustc-serialize): Serialization and deserialization support provided by the compiler.
+#### 1. [heapsize](https://crates.io/crates/heapsize): 
+*infrastructure for measuring the total runtime size of an object on the heap*
+#### 2. [rustc-serialize](https://crates.io/crates/rustc-serialize): 
+*Serialization and deserialization support provided by the compiler.*
 
 **One thing to note**: *This crate is deprecated in favor of [`serde`](https://serde.rs/). No new feature development will happen in this crate, although bug fixes proposed through PRs will still be merged. It is very highly recommended by the Rust Library Team that you use [`serde`](https://serde.rs/), not this crate.*
-#### 3. [byteorder](https://crates.io/crates/byteorder): convenience methods for encoding and decoding numbers in either big-endian or little-endian order.
+#### 3. [byteorder](https://crates.io/crates/byteorder): 
+*convenience methods for encoding and decoding numbers in either big-endian or little-endian order.*
 
 *So what are big-endian and little-endian?*
 
